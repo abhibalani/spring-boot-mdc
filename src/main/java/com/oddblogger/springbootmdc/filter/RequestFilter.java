@@ -37,7 +37,7 @@ public class RequestFilter implements Filter {
     filterChain.doFilter(servletRequest, responseWrapper);
 
     responseWrapper.setHeader(Constants.REQUEST_ID, uniqueId.toString());
-
+    responseWrapper.copyBodyToResponse();
     log.info("Response header is set with uuid {}", responseWrapper.getHeader(Constants.REQUEST_ID));
   }
 }
